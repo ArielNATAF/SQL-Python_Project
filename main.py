@@ -106,20 +106,6 @@ def set_pivot_query(db_struct):
     return query
 
 
-# Query to get the data from the answers
-def get_all_data_from_answer():
-    query = ('SELECT a.*, u.User_Name, u.User_Email, '
-             'q.Question_Text,s.SurveyDescription, s.Survey_UserAdminId '
-             'FROM  [Survey_Sample_A19].[dbo].[Answer] AS a '
-             'INNER JOIN [Survey_Sample_A19].[dbo].[User] AS u '
-             'ON a.UserId=u.UserId '
-             'INNER JOIN [Survey_Sample_A19].[dbo].[Question] AS q '
-             'ON a.QuestionId=q.QuestionId '
-             'INNER JOIN [Survey_Sample_A19].[dbo].[Survey] AS s '
-             'ON a.SurveyId=s.SurveyId')
-    return query
-
-
 # Is going to decide if we need to create or update or neither the view depending of csv file saved in current directory
 def get_view(conn):
     def new_struct(df):
